@@ -20,7 +20,7 @@ Step 2. Add the dependency
 
 ```kotlin
 dependencies {
-    implementation("com.github.SomnioNocte:compose-extensions:0.1.0")
+    implementation("com.github.SomnioNocte:compose-extensions:0.1.1")
 }
 ```
 
