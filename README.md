@@ -13,6 +13,8 @@ inline fun animatableAs(
 ): Animatable<Float, AnimationVector1D>
 ```
 
+I don't highly recommend using it if you don't know when to use it.
+
 This Composable function provides a powerful way to animate Compose states without triggering recomposition of the entire UI. It works by observing changes in a provided value lambda and animating the given Animatable instance to the new value using the specified animation spec. You can also provide an onAnimationFinished callback to execute code once the animation completes.
 
 ### Modifier.clearFocusOnTap
