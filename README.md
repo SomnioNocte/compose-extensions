@@ -2,6 +2,30 @@
 
 Basically just simple handy functions that replace a couple lines of code. You can live without them, just for myself 🙃
 
+## Install
+
+Add it in your settings.gradle.kts at the end of repositories:
+
+```kotlin
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        mavenCentral()
+        maven { url = uri("https://jitpack.io") }
+    }
+}
+ ```
+
+Step 2. Add the dependency
+
+```kotlin
+dependencies {
+    implementation("com.github.SomnioNocte:compose-extensions:0.1.0")
+}
+```
+
+## Functions
+
 ### animatableAs
 ```kotlin
 @Composable
