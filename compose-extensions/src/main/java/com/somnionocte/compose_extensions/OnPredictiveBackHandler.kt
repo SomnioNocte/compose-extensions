@@ -94,14 +94,19 @@ fun onPredictiveBack(
 
     PredictiveBackHandler(enabled) { progress: Flow<BackEventCompat> ->
         try {
-            progress.firstOrNull()?.apply { state.startOffset = Offset(touchX, touchY) }
+            var isFirstTouch = true
 
             progress.collect { backHandler ->
+                if(isFirstTouch) {
+                    state.startOffset = Offset(backHandler.touchX, backHandler.touchY)
+                    isFirstTouch = false
+                }
                 state.progress = backHandler.progress
                 state.updateOffset(backHandler.touchX, backHandler.touchY)
             }
             onBack()
             state.reset()
+            isFirstTouch = false
         } catch (_: CancellationException) {
             state.reset()
         }
