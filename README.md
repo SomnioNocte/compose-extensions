@@ -17,7 +17,9 @@ This Composable function provides a powerful way to animate Compose states witho
 
 ### Modifier.clearFocusOnTap
 
-`fun Modifier.clearFocusOnTap(enabled: Boolean = true): Modifier`
+```kotlin
+fun Modifier.clearFocusOnTap(enabled: Boolean = true): Modifier
+```
 
 An extremely useful Composable Modifier that clears focus from the currently focused component when a tap gesture is detected outside of it. This is ideal for dismissing the software keyboard or deselecting input fields by simply tapping anywhere else on the screen. The enabled parameter allows you to toggle this behavior.
 
@@ -36,10 +38,14 @@ Calculates the fractional position of a Dp value within a specified range. This 
 
 ### amplitudeFractional
 
-`fun amplitudeFractional(fractional: Float): Float`
+```kotlin
+fun amplitudeFractional(fractional: Float): Float
+```
 
 Transforms a linear fractional value into an "amplitude" fraction. Typically, this function takes an input between 0.0f and 1.0f and returns a value between 0.0f and 1.0f that peaks at the beginning and end (0.0f and 1.0f input) and dips in the middle (0.5f input). This is useful for creating specific non-linear animation curves that might resemble a pulse or "bounce" effect.
+
 ### getScreenCornerRadius
+
 ```kotlin
 @Composable
 fun getScreenCornerRadius(): Dp
@@ -49,19 +55,30 @@ A Composable function that retrieves the physical screen corner radius of the de
 
 ### GraphicsLayerScope.scale
 
-`var GraphicsLayerScope.scale: Float`
+```kotlin
+var GraphicsLayerScope.scale: Float
+```
 
 An extension property for GraphicsLayerScope that simplifies uniform scaling. When you set this property, both scaleX and scaleY of the graphics layer are set to the same value, ensuring content scales proportionally. Getting the property returns the current scaleX.
 
 ### GraphicsLayerScope.blur
 
-`fun GraphicsLayerScope.blur(value: Float)`
+```kotlin
+fun GraphicsLayerScope.blur(value: Float)
+```
 
 An extension function to apply a blur effect to the content within a GraphicsLayerScope. It takes a value (blur radius) and applies a BlurEffect using TileMode.Decal. For smaller values, a non-linear scaling is applied to create a more noticeable effect.
 
 ### PredictiveBackState
 
-`class PredictiveBackState { ... }`
+```kotlin
+interface PredictiveBackState {
+    val isDragged: Boolean
+    val offset: Offset
+    val startOffset: Offset
+    val progress: Float
+}
+```
 
 A class that represents the mutable state of a predictive back gesture. It holds crucial information like the progress of the gesture (0f to 1f), the startOffset where the touch began, and the current offset of the touch point. This state can be observed to build dynamic UI reactions to the predictive back animation.
 
