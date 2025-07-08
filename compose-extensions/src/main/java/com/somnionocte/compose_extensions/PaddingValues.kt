@@ -25,7 +25,7 @@ operator fun PaddingValues.minus(other: PaddingValues): PaddingValues {
     )
 }
 
-internal fun lerp(start: PaddingValues, stop: PaddingValues, fraction: Float): PaddingValues {
+fun lerp(start: PaddingValues, stop: PaddingValues, fraction: Float): PaddingValues {
     val ltr = LayoutDirection.Ltr
 
     return PaddingValues(
