@@ -24,3 +24,14 @@ operator fun PaddingValues.minus(other: PaddingValues): PaddingValues {
         calculateBottomPadding() - other.calculateBottomPadding()
     )
 }
+
+internal fun lerp(start: PaddingValues, stop: PaddingValues, fraction: Float): PaddingValues {
+    val ltr = LayoutDirection.Ltr
+
+    return PaddingValues(
+        start = androidx.compose.ui.unit.lerp(start.calculateStartPadding(ltr), stop.calculateStartPadding(ltr), fraction),
+        top = androidx.compose.ui.unit.lerp(start.calculateTopPadding(), stop.calculateTopPadding(), fraction),
+        end = androidx.compose.ui.unit.lerp(start.calculateEndPadding(ltr), stop.calculateEndPadding(ltr), fraction),
+        bottom = androidx.compose.ui.unit.lerp(start.calculateBottomPadding(), stop.calculateBottomPadding(), fraction),
+    )
+}
